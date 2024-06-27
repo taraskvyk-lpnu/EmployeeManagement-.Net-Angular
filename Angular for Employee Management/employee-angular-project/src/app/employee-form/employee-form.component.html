@@ -1,0 +1,53 @@
+<div *ngIf="errorMessage != ''">
+  {{errorMessage}}
+</div>
+
+<form *ngIf="errorMessage === ''" #employeeForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstName">First Name*</label>
+    <input required #firstName="ngModel" id="firstName" type="text" name="firstName" [(ngModel)]="employee.firstName">
+
+    <div *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)">
+      <div class="text-danger" *ngIf="firstName.errors?.['required']">FirstName is required</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="lastName">Last Name*</label>
+    <input required #lastName="ngModel" id="lastName" type="text" name="lastName" [(ngModel)]="employee.lastName">
+
+    <div *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)">
+      <div class="text-danger" *ngIf="lastName.errors?.['required']">Last Name is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email*</label>
+    <input required email #email="ngModel" id="email" type="email" name="email" [(ngModel)]="employee.email">
+
+    <div *ngIf="email.invalid && (email.touched || email.dirty)">
+      <div class="text-danger" *ngIf="email.errors?.['required']">Email is required.</div>
+      <div class="text-danger" *ngIf="email.errors?.['email']">Email is invalid.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="phone">Phone*</label>
+    <input required #phone="ngModel" id="phone" type="text" name="phone" [(ngModel)]="employee.phone">
+
+    <div *ngIf="phone.invalid && (phone.touched || phone.dirty)">
+      <div class="text-danger" *ngIf="phone.errors?.['required']">Phone is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="position">Position*</label>
+    <input required #position="ngModel" id="position" type="text" name="position" [(ngModel)]="employee.position">
+
+    <div *ngIf="position.invalid && (position.touched || position.dirty)">
+      <div class="text-danger" *ngIf="position.errors?.['required']">Position is required.</div>
+    </div>
+  </div>
+
+  <button [disabled]="employeeForm.invalid" type="submit"> {{!isEditing ? 'Add' : 'Update'}}</button>
+</form>

@@ -1,0 +1,37 @@
+
+<div class="m-5">
+  <div class="m-5">
+    <table>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>LastName</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Position</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let employee of employees">
+        <td>{{employee.id}}</td>
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.position}}</td>
+        <td>
+          <button class="btn m-1 btn-warning" (click)="updateEmployee(employee.id)">
+            Update
+          </button>
+          <button class="btn m-1 btn-danger" (click)="deleteEmployee(employee)">
+            Delete
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

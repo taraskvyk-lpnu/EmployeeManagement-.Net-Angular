@@ -1,0 +1,55 @@
+/* Стилі для таблиці */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  min-width: 400px;
+}
+
+table thead tr {
+  background-color: #007BFF;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+table th, table td {
+  text-align: center;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+table tbody tr:last-of-type {
+  border-bottom: 2px solid #007BFF;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Стилі для більшої доступності */
+form div.required label::after {
+  content: " *";
+  color: red;
+}
+
+input:focus {
+  border-color: #007BFF;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+table td:last-child {
+  display: flex;
+  justify-content: center;
+}
